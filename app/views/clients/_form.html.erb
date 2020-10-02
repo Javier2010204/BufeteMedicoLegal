@@ -1,0 +1,32 @@
+<%= form_with(model: client, local: true) do |form| %>
+  <% if client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+        <% client.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Nombre", class:"block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :name, class:'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  </div>
+
+  <div class="field">
+    <%= form.label "correo electrónico", class:"block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :email, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Dejanos tu opinion de la charla o temas de interes", class:"block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_area :opinion, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Enviar informacion", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+<% end %>
